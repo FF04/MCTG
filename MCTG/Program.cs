@@ -10,15 +10,17 @@ namespace MCTG
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
-
+#warning toadd classdiagram
             builder.Services.AddControllers();
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
-          
+            builder.Services.AddSingleton<IUserService, UserService>();
+
             var app = builder.Build();
 
-            var userService = app.Services.GetRequiredService<IMainService>() as MainService;
-            userService?.InitializeData();
+            // Add this service so it can be used in controllers
+            var userService = app.Services.GetRequiredService<IUserService>() as UserService;
+            userService?.InitializeData(); // Load Start Data
 
 
             // Configure the HTTP request pipeline.

@@ -1,4 +1,4 @@
-﻿namespace MCTG
+﻿namespace MCTG.Models
 {
     public class User
     {
@@ -9,8 +9,8 @@
 #warning magic number
             Coins = 20;
         }
-        public string Email{ get; set; }
-        public string Password{ get; set; }
+        public string Email { get; set; }
+        public string Password { get; set; }
         public int Coins { get; set; }
         public List<Card> CardStack { get; set; } = new();
 

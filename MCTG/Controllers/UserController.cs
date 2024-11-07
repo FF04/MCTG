@@ -1,17 +1,19 @@
-﻿using MCTG.Services;
+﻿using MCTG.Models;
+using MCTG.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MCTG.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class MainController : Controller
+    public class UserController : Controller
     {
-        MainService _service;
-        public MainController(MainService service)
+        IUserService _service;
+        public UserController(IUserService service)
         {
             _service = service;
         }
+
         [HttpPost]
         [Route("register")]
         public IActionResult Register([FromBody] User user)
@@ -23,7 +25,7 @@ namespace MCTG.Controllers
             if (string.IsNullOrWhiteSpace(user.Password))
                 return Unauthorized();
 
-            _service.AddUser(user);
+            _service.RegisterUser(user);
             return Ok();
         }
 
@@ -38,7 +40,7 @@ namespace MCTG.Controllers
             if (string.IsNullOrWhiteSpace(user.Password))
                 return Unauthorized();
 
-            _service.AddUser(user);
+            _service.LoginUser(user);
             return Ok();
         }
 

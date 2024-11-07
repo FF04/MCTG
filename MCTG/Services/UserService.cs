@@ -1,12 +1,19 @@
 ﻿
+using MCTG.Models;
+
 namespace MCTG.Services
 {
-    public class MainService : IMainService
+    public class UserService : IUserService
     {
 
         List<User> users = new();
 
-        public void AddUser(User user)
+
+        #region CONSTANTS
+        private const int PACKAGE_PRICE = 5;
+        #endregion
+
+        public void RegisterUser(User user)
         {
             users.Add(user);
         }
@@ -16,18 +23,18 @@ namespace MCTG.Services
 
         }
 
-        public void BuyPackage(User user)
+        public Card[] BuyPackage(User user)
         {
-#warning Magic number
-            if (user.Coins < 5)
-                return;
-            user.Coins -= 5;
+            if (user.Coins < PACKAGE_PRICE)
+                return null;
+
+            user.Coins -= PACKAGE_PRICE;
 
             Card[] Package = new Card[5];
 #warning cards definen
             user.CardStack.AddRange(Package);
 
-
+            return Package;
         }
 
 
@@ -40,6 +47,17 @@ namespace MCTG.Services
         }
 
         internal void InitializeData()
+        {
+        }
+
+
+
+        public void LoginUser(User user)
+        {
+            throw new NotImplementedException();
+        }
+
+        void IUserService.BuyPackage(User user)
         {
             throw new NotImplementedException();
         }

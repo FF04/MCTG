@@ -1,0 +1,18 @@
+﻿<Window x:Class="MCTG_Frontend.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MCTG_Frontend"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <StackPanel Margin="60,20,60,30" >
+        <Label Content="LOGIN" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Top"></Label>
+        <Label Content="Username" HorizontalAlignment="Center" VerticalAlignment="Top"></Label>
+        <TextBox x:Name="Username_Textbow" HorizontalAlignment="Center" VerticalAlignment="Top" Width="100"></TextBox>
+        <Label Content="Password" HorizontalAlignment="Center" VerticalAlignment="Top"></Label>
+        <TextBox x:Name="PW_Textbox" HorizontalAlignment="Center" VerticalAlignment="Top" Width="100"></TextBox>
+        <Button x:Name="Send_Button" Content="SEND" Width="60" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,30,0,0" Click="Send_Button_Click"/>
+
+    </StackPanel>
+</Window>

@@ -1,4 +1,4 @@
-﻿namespace MCTG
+﻿namespace MCTG.Models
 {
     public class Card
     {
@@ -20,7 +20,7 @@
     {
         None = 0,
     }
-#warning besser vererbung einbauen...?
+#warning besser vererbung einbauen...? Ja! haben ja andere attribute
     public enum CardTypes
     {
         SpellCard,
