@@ -1,5 +1,6 @@
 ﻿using MCTG.Models;
 using MCTG.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MCTG.Controllers
@@ -15,34 +16,37 @@ namespace MCTG.Controllers
         }
 
         [HttpPost]
-        [Route("register")]
-        public IActionResult Register([FromBody] User user)
+        [AllowAnonymous]
+        public IActionResult Register([FromBody] UserCredentials credentials)
         {
-            if (user is null)
-                return Unauthorized();
-            if (string.IsNullOrWhiteSpace(user.Email))
-                return Unauthorized();
-            if (string.IsNullOrWhiteSpace(user.Password))
-                return Unauthorized();
+            throw new NotImplementedException();
 
-            _service.RegisterUser(user);
-            return Ok();
         }
 
-        [HttpGet]
-        [Route("login")]
-        public IActionResult Login([FromBody] User user)
+        [HttpGet("{username}")]
+        [Authorize]
+        public IActionResult GetUser(string username)
         {
-            if (user is null)
-                return Unauthorized();
-            if (string.IsNullOrWhiteSpace(user.Email))
-                return Unauthorized();
-            if (string.IsNullOrWhiteSpace(user.Password))
-                return Unauthorized();
+            throw new NotImplementedException();
 
-            _service.LoginUser(user);
-            return Ok();
         }
+
+        [HttpPut("{username}")]
+        [Authorize]
+        public IActionResult UpdateUser(string username, [FromBody] UserData userData)
+        {
+            throw new NotImplementedException();
+
+        }
+
+        [HttpPost("/sessions")]
+        [AllowAnonymous]
+        public IActionResult Login([FromBody] UserCredentials credentials)
+        {
+            throw new NotImplementedException();
+
+        }
+
 
     }
 }

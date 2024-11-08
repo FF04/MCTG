@@ -20,7 +20,8 @@ namespace MCTG
 
             // Add this service so it can be used in controllers
             var userService = app.Services.GetRequiredService<IUserService>() as UserService;
-            userService?.InitializeData(); // Load Start Data
+#warning to verknüpfen
+            //    userService?.InitializeData(); // Load Start Data
 
 
             // Configure the HTTP request pipeline.
